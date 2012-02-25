@@ -58,8 +58,6 @@ foreach( $friend_id_list as $friend_id_line ){
 
 	while ( 1 == $keep_requesting ){
 		$status_stream = $connection->get( 'users/lookup', $oauth_options );
-		var_dump( $status_stream );
-		die();
 		$next_cursor = $status_stream->next_cursor;
 
 		if ( 0 == $next_cursor )
@@ -67,12 +65,7 @@ foreach( $friend_id_list as $friend_id_line ){
 		else
 			$oauth_options[ 'cursor' ] = $next_cursor;
 
-		$abc = 1;
 		foreach( $status_stream as $friend_object ){
-			if ( $abc = 1 ){
-				$abc = 2;
-				continue;
-			}
 			$ob_id = $friend_object->id;
 			$ob_screen_name = $friend_object->screen_name;
 			$ob_name = $friend_object->name;
@@ -81,7 +74,7 @@ foreach( $friend_id_list as $friend_id_line ){
 			$ob_status = $friend_object->status->text;
 			$ob_status_date = $friend_object->status->created_at;
 
-			$unfollow_side_list .= $ob_id . ' ' . $ob_screen_name . ' ' . $ob_status_date . '<br>';
+			echo $ob_id . ' ' . $ob_screen_name . ' ' . $ob_status_date . '<br>';
 
 			if ( ( $today_date - strtotime( $ob_status_date ) ) > $default_interval ){
 				$ob_display_status_date = $ob_status_date;
