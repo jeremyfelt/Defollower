@@ -58,6 +58,8 @@ foreach( $friend_id_list as $friend_id_line ){
 
 	while ( 1 == $keep_requesting ){
 		$status_stream = $connection->get( 'users/lookup', $oauth_options );
+		var_dump( $status_stream );
+		die();
 		$next_cursor = $status_stream->next_cursor;
 
 		if ( 0 == $next_cursor )
