@@ -95,4 +95,4 @@ foreach( $friend_id_list as $friend_id_line ){
 	}
 }
 
-//include VIEWS_DIR . 'display.php';
+include VIEWS_DIR . 'display.php';
