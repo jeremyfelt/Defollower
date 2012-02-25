@@ -66,6 +66,7 @@ foreach( $friend_id_list as $friend_id_line ){
 			$oauth_options[ 'cursor' ] = $next_cursor;
 
 		foreach( $status_stream as $friend_object ){
+			var_dump( $friend_object );
 			$ob_id = $friend_object->id;
 			$ob_screen_name = $friend_object->screen_name;
 			$ob_name = $friend_object->name;
@@ -90,4 +91,4 @@ foreach( $friend_id_list as $friend_id_line ){
 	}
 }
 
-include VIEWS_DIR . 'display.php';
+//include VIEWS_DIR . 'display.php';
