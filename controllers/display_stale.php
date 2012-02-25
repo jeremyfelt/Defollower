@@ -65,18 +65,22 @@ foreach( $friend_id_list as $friend_id_line ){
 		else
 			$oauth_options[ 'cursor' ] = $next_cursor;
 
+		$abc = 1;
 		foreach( $status_stream as $friend_object ){
-			var_dump( $friend_object );
+			if ( $abc = 1 ){
+				$abc = 2;
+				continue;
+			}
 			$ob_id = $friend_object->id;
 			$ob_screen_name = $friend_object->screen_name;
 			$ob_name = $friend_object->name;
 			$ob_image = $friend_object->profile_image_url;
 			$ob_description = $friend_object->description;
 			$ob_status = $friend_object->status->text;
-			$ob_status_date = strtotime( $friend_object->status->created_at );
+			$ob_status_date = $friend_object->status->created_at;
 
-            if ( ( $today_date - $ob_status_date ) > $default_interval ){
-				$ob_display_status_date = date('m/d/Y', $ob_status_date);
+			if ( ( $today_date - strtotime( $ob_status_date ) ) > $default_interval ){
+				$ob_display_status_date = $ob_status_date;
 
 				$unfollow_list .= '<div class="ob_twit">
 					<div class="ob_screen_name">' . $ob_screen_name . '</div>
