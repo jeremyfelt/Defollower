@@ -1,10 +1,7 @@
 <?php
-
 /*  callback.php
-
     Handles the authentication callback after the user is
     processed through the Twitter oAuth servers.
-
 */
 
 session_start();
