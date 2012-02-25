@@ -79,6 +79,8 @@ foreach( $friend_id_list as $friend_id_line ){
 			$ob_status = $friend_object->status->text;
 			$ob_status_date = $friend_object->status->created_at;
 
+			$unfollow_side_list .= $ob_id . ' ' . $ob_screen_name . ' ' . $ob_status_date . '<br>';
+
 			if ( ( $today_date - strtotime( $ob_status_date ) ) > $default_interval ){
 				$ob_display_status_date = $ob_status_date;
 

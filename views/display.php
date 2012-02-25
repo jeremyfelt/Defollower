@@ -14,6 +14,7 @@ include VIEWS_DIR . 'header_postauth.php';
     <br>
     <?php echo $content; ?>
 </div>
+	<?php echo $unfollow_side_list; ?>
 <div class="old_friends">
     <?php echo $unfollow_list; ?>
 </div>
