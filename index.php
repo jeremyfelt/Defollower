@@ -4,7 +4,7 @@ define( 'MY_IP', '24.22.85.180' );
 
 /* Because of the authorization with Twitter, we want to use
  * the same domain name for every request when logging in. */
-if ( 'defollower.com' != $_SERVER[ 'HTTP_HOST' ] ) != "defollower.com")
+if ( 'defollower.com' != $_SERVER[ 'HTTP_HOST' ] )
 	header( 'Location: http://defollower.com' );
 
 require_once( 'config.php' );
