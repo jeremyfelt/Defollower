@@ -1,27 +1,19 @@
 <?php
+/**
+ * Route incoming requests coming through to defollower.com
+ *
+ * If we're already authenticated, then we should see a different view
+ * from somebody that has just arrived on the site. If we are authenticated,
+ * then we'll need to decide what view to show them.
+ */
 
-define( 'MY_IP', '24.22.85.180' );
-
-/* Because of the authorization with Twitter, we want to use
- * the same domain name for every request when logging in. */
-if ( 'defollower.com' != $_SERVER[ 'HTTP_HOST' ] )
+// If we arrive with any prefix (www/etc), redirect to defollower.com for easier token handling
+if ( 'defollower.com' != $_SERVER['HTTP_HOST'] )
 	header( 'Location: http://defollower.com' );
 
-require_once( 'config.php' );
-require_once( 'includes/twitteroauth.php' );
-
-if( $_SERVER['REMOTE_ADDR'] != MY_IP ){
-	include 'views/placeholder.php';
-	exit;
-}else{
-	/* Start the session and check if we already have an access token.
-	 * If we don't, display the login page. */
-	session_start();
-	if ( isset( $_SESSION[ 'access_token' ] ) ){
-		include 'controllers/display_stale.php';
-		exit();
-	}
-	session_write_close();
-
-	include 'views/login.php';
+if ( isset( $_COOKIE['defollower_auth'] ) ) {
+	include 'display_stale.php';
+	exit();
 }
+
+include 'login.php';
