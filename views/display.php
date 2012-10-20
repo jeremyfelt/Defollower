@@ -1,6 +1,6 @@
 <?php
 
-include VIEWS_DIR . 'header_postauth.php';
+include 'views/header_postauth.php';
 
 ?>
 <div class="announce">
@@ -18,4 +18,4 @@ include VIEWS_DIR . 'header_postauth.php';
 <div class="old_friends">
     <?php echo $unfollow_list; ?>
 </div>
-<?php include VIEWS_DIR . 'footer_postauth.php'; ?>
+<?php include 'views/footer_postauth.php'; ?>

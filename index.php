@@ -11,7 +11,8 @@
 if ( 'defollower.com' != $_SERVER['HTTP_HOST'] )
 	header( 'Location: http://defollower.com' );
 
-if ( isset( $_COOKIE['defollower_auth'] ) ) {
+session_start();
+if ( isset( $_SESSION['access_token'] ) ) {
 	include 'display_stale.php';
 	exit();
 }
