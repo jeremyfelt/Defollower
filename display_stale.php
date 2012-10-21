@@ -80,17 +80,23 @@ foreach( $friend_id_list as $friend_id_line ){
 			if ( 2592000 > time() - $ob_status_date_conv )
 				continue;
 
-			if ( ( $today_date - strtotime( $ob_status_date ) ) > $default_interval ){
+			if ( ( $today_date - strtotime( $ob_status_date ) ) > $default_interval ) {
 				$ob_display_status_date = $ob_status_date;
 
+				$ob_tweet_date = date( 'F m, Y', strtotime( $ob_status_date ) );
+				$ob_c_date = date( 'c', strtotime( $ob_status_date ) );
 				$unfollow_list .= '<div class="ob_twit">
-					<div class="ob_screen_name">' . $friend_object->screen_name . '</div>
-					<div class="ob_status_date">' . $ob_display_status_date . '</div>
-					<div class="ob_image"><img src="' . $friend_object->profile_image_url . '"></div>
-					<div class="ob_name">' . $friend_object->name . '</div>
-					<div class="ob_description">' . $friend_object->description . '</div>
-					<div class="ob_status">' . $friend_object->status->text . '</div>
-					<div class="unfollow_link"><a href="unfollow.php?fid=' . $friend_object->id . '">Unfollow</a></div></div>';
+					<blockquote class="twitter-tweet"><p>' . $friend_object->status->text . '</p>' .
+					'&mdash; ' . $friend_object->name . '(@' . $friend_object->screen_name . ') ' .
+					'<a href="https://twitter.com/' . $friend_object->screen_name . '/status/' . $friend_object->status->id .
+					'" data-datetime="' . $ob_c_date . '">' . $ob_tweet_date . '</a></blockquote></div>';
+					//<div class="ob_screen_name">' . $friend_object->screen_name . '</div>
+					//<div class="ob_status_date">' . $ob_display_status_date . '</div>
+					//<div class="ob_image"><img src="' . $friend_object->profile_image_url . '"></div>
+					//<div class="ob_name">' . $friend_object->name . '</div>
+					//<div class="ob_description">' . $friend_object->description . '</div>
+					//<div class="ob_status">' . $friend_object->status->text . '</div>
+					//<div class="unfollow_link"><a href="unfollow.php?fid=' . $friend_object->id . '">Unfollow</a></div></div>';
             }
 		}
 	}
