@@ -9,7 +9,7 @@
 require_once( 'config.php' );
 
 // If we arrive with any prefix (www/etc) or URL, redirect to SITE_ADDRESS for easier token handling
-if ( SITE_ADDRESS != $_SERVER['HTTP_HOST'] )
+if ( ! strstr( SITE_ADDRESS, $_SERVER['HTTP_HOST'] ) )
 	header( 'Location: ' . SITE_ADDRESS );
 
 // We use sessions, cuz I'm lazy at the moment
