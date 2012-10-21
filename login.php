@@ -1,11 +1,7 @@
-<?php
-include 'header.php';
-$content = '<a href="./open_connection.php"><img src="./images/lighter.png" alt="Sign in with Twitter"/></a>';
-
-?>
+<?php include 'header.php'; ?>
 <div class="announce">
 	<h1>This Is Defollower</h1>
 	<br>
-	<a href="./open_connection.php"><img src="./images/lighter.png" alt="Sign in with Twitter"/></a>
+	<a href="./open_connection.php"><img src="./images/sign-in-with-twitter-gray.png" alt="Sign in with Twitter"/></a>
 </div>
 <?php include 'footer.php';
