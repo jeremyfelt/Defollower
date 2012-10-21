@@ -68,8 +68,10 @@ foreach( $friend_id_list as $friend_id_line ){
 			$ob_status_date = $friend_object->status->created_at;
 			$ob_status_date_conv = strtotime( $ob_status_date );
 
-			if ( $screen_name == $friend_object->screen_name )
-				continue;
+			if ( $access_token['screen_name'] == $friend_object->screen_name ) {
+				$signout_profile_image = $friend_object->profile_image_url;
+				continue; // don't care when the user last tweeted...
+			}
 
 			if ( ! $ob_status_date )
 				continue;

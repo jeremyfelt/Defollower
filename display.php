@@ -11,6 +11,7 @@ include 'header.php';
     that data to recommend that others follow the same users that we are already following. Imagine the confusion
     when a recommended followee appears that hasn't uttered a character, let alone 140, in months.</p>
 </div>
+<a href="./clearsessions.php" class="signout-button" style="background-image: url( '<?php echo $signout_profile_image; ?>');">Sign Out</a>
 <div class="old_friends">
     <?php echo $unfollow_list; ?>
 </div>
