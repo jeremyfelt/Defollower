@@ -7,7 +7,6 @@ if ( empty( $_SESSION[ 'access_token' ] ) || empty( $_SESSION[ 'access_token' ][
 /* Get user access tokens out of the session. */
 $access_token = $_SESSION[ 'access_token' ];
 require_once('includes/twitteroauth.php');
-require_once('config.php');
 
 /* Create a TwitterOauth object with consumer/user tokens. */
 $connection = new TwitterOAuth( CONSUMER_KEY, CONSUMER_SECRET, $access_token[ 'oauth_token' ], $access_token[ 'oauth_token_secret' ] );

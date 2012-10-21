@@ -1,16 +1,18 @@
 <?php
 /**
- * Route incoming requests coming through to defollower.com
+ * Route incoming requests
  *
  * If we're already authenticated, then we should see a different view
  * from somebody that has just arrived on the site. If we are authenticated,
  * then we'll need to decide what view to show them.
  */
+require_once( 'config.php' );
 
-// If we arrive with any prefix (www/etc), redirect to defollower.com for easier token handling
-if ( 'defollower.com' != $_SERVER['HTTP_HOST'] )
-	header( 'Location: http://defollower.com' );
+// If we arrive with any prefix (www/etc) or URL, redirect to SITE_ADDRESS for easier token handling
+if ( SITE_ADDRESS != $_SERVER['HTTP_HOST'] )
+	header( 'Location: ' . SITE_ADDRESS );
 
+// We use sessions, cuz I'm lazy at the moment
 session_start();
 if ( isset( $_SESSION['access_token'] ) ) {
 	include 'display_stale.php';
