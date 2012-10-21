@@ -93,4 +93,3 @@ foreach( $friend_id_list as $friend_id_line ){
 		}
 	}
 }
-include 'views/display.php';

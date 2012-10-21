@@ -15,8 +15,13 @@ if ( SITE_ADDRESS != $_SERVER['HTTP_HOST'] )
 // We use sessions, cuz I'm lazy at the moment
 session_start();
 if ( isset( $_SESSION['access_token'] ) ) {
-	include 'display_stale.php';
+	include 'generate_stale_data.php';
+	session_write_close();
+	include 'display.php';
 	exit();
 }
+session_write_close();
 
+include 'header.php';
 include 'login.php';
+include 'footer.php';
