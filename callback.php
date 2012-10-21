@@ -28,11 +28,13 @@ $access_token['oauth_token_secret'];
 unset($_SESSION['oauth_token']);
 unset($_SESSION['oauth_token_secret']);
 
+$_SESSION['access_token'] = $access_token;
+
 /* If HTTP response is 200 continue otherwise send to connect page to retry */
 if (200 == $connection->http_code) {
   /* The user has been verified and the access tokens can be saved for future use */
   $_SESSION['status'] = 'verified';
-  header('Location: ./index.php');
+  header('Location: http://defollower.com/');
 } else {
   /* Save HTTP status for error dialog on connnect page.*/
   header('Location: ./clearsessions.php');
