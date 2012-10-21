@@ -10,7 +10,7 @@ require_once( 'config.php' );
 
 // Build a new TwitterOAuth object with client credentials from our config
 $connection = new TwitterOAuth( CONSUMER_KEY, CONSUMER_SECRET );
-$request_token = $connection->getRequestToken( OAUTH_CALLBACK );
+$request_token = $connection->getRequestToken( SITE_ADDRESS . '/callback.php' );
 
 // Save temporary credentials to the session, though I'd rather use cookies or something for this
 // @todo ditch the session stuff
