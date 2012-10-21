@@ -11,8 +11,6 @@ require_once('includes/twitteroauth.php');
 /* Create a TwitterOauth object with consumer/user tokens. */
 $connection = new TwitterOAuth( CONSUMER_KEY, CONSUMER_SECRET, $access_token[ 'oauth_token' ], $access_token[ 'oauth_token_secret' ] );
 
-$today_date = time();
-$default_interval = 2592000;
 $screen_name = 'jeremyfelt';
 
 $oauth_options = array('screen_name' => $screen_name,
@@ -79,17 +77,13 @@ foreach( $friend_id_list as $friend_id_line ){
 			if ( 2592000 > time() - $ob_status_date_conv )
 				continue;
 
-			if ( ( $today_date - strtotime( $ob_status_date ) ) > $default_interval ) {
-				$ob_display_status_date = $ob_status_date;
-
-				$ob_tweet_date = date( 'F m, Y', strtotime( $ob_status_date ) );
-				$ob_c_date = date( 'c', strtotime( $ob_status_date ) );
-				$unfollow_list .= '<div class="ob_twit">
-					<blockquote class="twitter-tweet"><p>' . $friend_object->status->text . '</p>' .
-					'&mdash; ' . $friend_object->name . '(@' . $friend_object->screen_name . ') ' .
-					'<a href="https://twitter.com/' . $friend_object->screen_name . '/status/' . $friend_object->status->id .
-					'" data-datetime="' . $ob_c_date . '">' . $ob_tweet_date . '</a></blockquote></div>';
-            }
+			$ob_tweet_date = date( 'F m, Y', strtotime( $ob_status_date ) );
+			$ob_c_date = date( 'c', strtotime( $ob_status_date ) );
+			$unfollow_list .= '<div class="ob_twit">
+				<blockquote class="twitter-tweet"><p>' . $friend_object->status->text . '</p>' .
+				'&mdash; ' . $friend_object->name . '(@' . $friend_object->screen_name . ') ' .
+				'<a href="https://twitter.com/' . $friend_object->screen_name . '/status/' . $friend_object->status->id .
+				'" data-datetime="' . $ob_c_date . '">' . $ob_tweet_date . '</a></blockquote></div>';
 		}
 	}
 }
