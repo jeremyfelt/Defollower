@@ -3,4 +3,4 @@
 session_start();
 session_destroy();
 /* Redirect to page with the connect to Twitter option. */
-header( 'Location: http://www.defollower.com' );
+header( 'Location: http://defollower.com' );

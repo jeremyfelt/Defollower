@@ -8,4 +8,4 @@ $content = '<a href="./open_connection.php"><img src="./images/lighter.png" alt=
 	<br>
 	<a href="./open_connection.php"><img src="./images/lighter.png" alt="Sign in with Twitter"/></a>
 </div>
-<?php include 'views/footer_preauth.php';
+<?php include 'footer.php';

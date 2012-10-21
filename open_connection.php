@@ -25,4 +25,4 @@ if ( 200 == $connection->http_code ) {
 include 'header.php';
 // Something didn't work right.
 echo 'Could not connect to Twitter. Refresh the page or try again later';
-include 'views/footer_preauth.php';
+include 'footer.php';

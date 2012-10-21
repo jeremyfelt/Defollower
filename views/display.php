@@ -1,6 +1,6 @@
 <?php
 
-include 'header';
+include 'header.php';
 
 ?>
 <div class="announce">
@@ -15,4 +15,4 @@ include 'header';
     <?php echo $unfollow_list; ?>
 </div>
 <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-<?php include 'views/footer_postauth.php';
+<?php include 'footer.php';
