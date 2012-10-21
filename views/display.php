@@ -1,6 +1,6 @@
 <?php
 
-include 'views/header_postauth.php';
+include 'header';
 
 ?>
 <div class="announce">
