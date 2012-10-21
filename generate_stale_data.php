@@ -1,7 +1,7 @@
 <?php
 
 /* If access tokens are not available redirect to connect page. */
-if ( empty( $_SESSION[ 'access_token' ] ) || empty( $_SESSION[ 'access_token' ][ 'oauth_token' ] ) || empty( $_SESSION[ 'access_token' ][ 'oauth_token_secret' ] ) )
+if ( empty( $_SESSION['access_token'] ) || empty( $_SESSION['access_token']['oauth_token'] ) || empty( $_SESSION['access_token']['oauth_token_secret'] ) || empty( $_SESSION['access_token']['screen_name'] ) )
 	header('Location: ./clearsessions.php');
 
 /* Get user access tokens out of the session. */
@@ -11,10 +11,10 @@ require_once('includes/twitteroauth.php');
 /* Create a TwitterOauth object with consumer/user tokens. */
 $connection = new TwitterOAuth( CONSUMER_KEY, CONSUMER_SECRET, $access_token[ 'oauth_token' ], $access_token[ 'oauth_token_secret' ] );
 
-$screen_name = 'jeremyfelt';
-
-$oauth_options = array('screen_name' => $screen_name,
-                       'cursor' => '-1');
+$oauth_options = array(
+	'screen_name' => $access_token['screen_name'],
+	'cursor' => '-1',
+);
 
 $keep_requesting = 1;   /* Keep the loop going while we page through results. */
 $x = 0;                 /* Used to separate the friend id array into groups of 100 */
