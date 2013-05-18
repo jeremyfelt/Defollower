@@ -5,11 +5,12 @@ Defollower is the list of the tweeps you follow that have not said anything in a
 
 This is one of those projects that just took up web server space for the last year, so that means it wanted to be cleaned up a tiny bit and then published so that it can go back to hibernation. And now it can hibernate anywhere!
 
+**Note** This was never updated to the newer version of Twitter's API, so is probably broken.
+
 Requirements
 -------------------
 
 + Meh.. anything with a web server and PHP should do. Does require sessions, so that could cause some issues if your server doesn't like them.
-
 Configuration / Installation
 ----------------------------------
 
@@ -20,7 +21,7 @@ Configuration / Installation
 Live Example
 ---------------
 
-A live example of Defollower can be found at http://defollower.com
+A live example of Defollower was at `http://defollower.com`, but is no longer.
 
 Contact
 -------
